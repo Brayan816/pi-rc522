@@ -131,7 +131,7 @@ class RFIDUtil(object):
         error = self.do_auth(block_address)
         if not error:
             (error, data) = self.rfid.read(block_address)
-            print(self.sector_string(block_address) + ": " + str(data))
+            print(self.sector_string(block_address) + ":HOLA " + str(data))
         else:
             print("Error on " + self.sector_string(block_address))
 
