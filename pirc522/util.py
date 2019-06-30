@@ -131,8 +131,17 @@ class RFIDUtil(object):
         if not error:
             (error, data) = self.rfid.read(block_address)
             print(self.sector_string(block_address) + ":HOLA " + str(data))
+            c=""
+            for x in range(0,16):
+                 if data[x]==0:
+                     data[x]=32
+                 c= c + chr(data[x])
+                 if x==15:
+                    Nombre=c
+                    return Nombre
         else:
             print("Error on " + self.sector_string(block_address))
+            return "0"
 
     def get_access_bits(self, c1, c2, c3):
         """
